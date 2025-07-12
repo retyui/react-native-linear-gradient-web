@@ -57,4 +57,4 @@ https://github.com/user-attachments/assets/543389b2-6670-4954-8f72-e3d8358b072e
 
 ## Known Issues
 
-- Additionally, using an SVG gradient as a background image is not compatible with the Tizen runtime.
+- This package is not compatible with the Tizen runtime (SVG gradient as a background image won't work).
