@@ -7797,6 +7797,11 @@ react-is@^18.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
+react-native-linear-gradient-web@^1.0.0-rc.1:
+  version "1.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient-web/-/react-native-linear-gradient-web-1.0.0-rc.1.tgz#ef9fe4f34ca3e75f8eaab5dcac37346f2f56533e"
+  integrity sha512-TgQTrI+mGomE7QP9cxA8neui75WjR764CGzW0wn6HveLyR8RqLrw8/aFGTtVb0zlRmBYYPFP9bF6gfg9zblznA==
+
 react-native-linear-gradient@^2.8.3:
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.8.3.tgz#9a116649f86d74747304ee13db325e20b21e564f"

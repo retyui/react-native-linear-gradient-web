@@ -44,6 +44,7 @@
     "react-dev-utils": "^12.0.1",
     "react-dom": "^19.1.0",
     "react-native-linear-gradient": "^2.8.3",
+    "react-native-linear-gradient-web": "^1.0.0-rc.1",
     "react-refresh": "^0.11.0",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
