@@ -29,6 +29,28 @@ export default function App() {
 
   return (
     <View style={styles.root}>
+      <View
+        style={[
+          styles.container,
+          {
+            ...Platform.select({
+              web: {
+                backgroundImage: `linear-gradient(116.565deg, rgb(255, 215, 0), rgb(0, 0, 255), rgb(128, 0, 128), rgb(255, 0, 0), rgb(255, 165, 0), rgb(255, 255, 0), rgb(0, 128, 0), rgb(255, 192, 203), rgb(0, 255, 255), rgb(255, 0, 255))`,
+              },
+              default: {
+                experimental_backgroundImage: `linear-gradient(116.565deg, rgb(255, 215, 0), rgb(0, 0, 255), rgb(128, 0, 128), rgb(255, 0, 0), rgb(255, 165, 0), rgb(255, 255, 0), rgb(0, 128, 0), rgb(255, 192, 203), rgb(0, 255, 255), rgb(255, 0, 255))`,
+              },
+            }),
+          },
+        ]}
+      >
+        <Text style={styles.t}>
+          {Platform.select({
+            web: `backgroundImage: linear-gradient(...)`,
+            default: `experimental_backgroundImage: linear-gradient(...)`,
+          })}
+        </Text>
+      </View>
       <LinearGradientNativeExpo
         // @ts-ignore
         colors={colors}
@@ -75,7 +97,6 @@ export default function App() {
             <Text style={styles.t}>react-native-linear-gradient-web</Text>
           </LinearGradientWeb>
         ),
-        default: <View style={styles.container} />,
       })}
 
       <View style={styles.r}>
