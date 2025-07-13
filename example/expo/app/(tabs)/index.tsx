@@ -1,75 +1,168 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+// import App from "../../src/App";
+// export default App;
+import { useState } from "react";
+import { StyleSheet, Text, View, Platform, ColorValue } from "react-native";
+import { LinearGradient as LinearGradientNativeExpo } from "expo-linear-gradient";
+// @ts-ignore
+import LinearGradientWebOld from "react-native-web-linear-gradient";
+import LinearGradientWeb from "react-native-linear-gradient-web";
+import Slider from "@react-native-community/slider";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+const colors = [
+  "gold",
+  "blue",
+  "purple",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "pink",
+  "cyan",
+  "magenta",
+];
 
-export default function HomeScreen() {
+export default function App() {
+  const [cords, setCords] = useState({
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  });
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <View style={styles.root}>
+      <LinearGradientNativeExpo
+        // @ts-ignore
+        colors={colors}
+        start={cords.start}
+        end={cords.end}
+        style={styles.container}
+      >
+        <Text style={styles.t}>expo-linear-gradient</Text>
+      </LinearGradientNativeExpo>
+      {Platform.select({
+        web: (
+          <LinearGradientWebOld
+            colors={colors}
+            start={cords.start}
+            end={cords.end}
+            style={styles.container}
+          >
+            <Text style={styles.t}>react-native-web-linear-gradient</Text>
+          </LinearGradientWebOld>
+        ),
+        get default() {
+          const LinearGradientNative =
+            require("react-native-linear-gradient").default;
+          return (
+            <LinearGradientNative
+              colors={colors}
+              start={cords.start}
+              end={cords.end}
+              style={styles.container}
+            >
+              <Text style={styles.t}>react-native-linear-gradient</Text>
+            </LinearGradientNative>
+          );
+        },
+      })}
+      {Platform.select({
+        web: (
+          <LinearGradientWeb
+            colors={colors}
+            start={cords.start}
+            end={cords.end}
+            style={styles.container}
+          >
+            <Text style={styles.t}>react-native-linear-gradient-web</Text>
+          </LinearGradientWeb>
+        ),
+        default: <View style={styles.container} />,
+      })}
+
+      <View style={styles.r}>
+        <Text>Start X:</Text>
+        <Slider
+          style={styles.s}
+          value={cords.start.x}
+          onValueChange={(v) =>
+            setCords((prev) => ({ ...prev, start: { ...prev.start, x: v } }))
+          }
+          minimumValue={0}
+          maximumValue={cords.end.x - 0.01}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      </View>
+      <View style={styles.r}>
+        <Text>Start Y:</Text>
+        <Slider
+          style={styles.s}
+          value={cords.start.y}
+          onValueChange={(v) =>
+            setCords((prev) => ({ ...prev, start: { ...prev.start, y: v } }))
+          }
+          minimumValue={0}
+          maximumValue={cords.end.y - 0.01}
+        />
+      </View>
+      <View style={styles.r}>
+        <Text>End X:</Text>
+        <Slider
+          style={styles.s}
+          value={cords.end.x}
+          onValueChange={(v) =>
+            setCords((prev) => ({ ...prev, end: { ...prev.end, x: v } }))
+          }
+          minimumValue={cords.start.x + 0.01}
+          maximumValue={1}
+        />
+      </View>
+      <View style={styles.r}>
+        <Text>End Y:</Text>
+        <Slider
+          style={styles.s}
+          value={cords.end.y}
+          onValueChange={(v) =>
+            setCords((prev) => ({ ...prev, end: { ...prev.end, y: v } }))
+          }
+          minimumValue={cords.start.y + 0.01}
+          maximumValue={1}
+        />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  root: {
+    maxWidth: 400,
+    marginHorizontal: "auto",
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  container: {
+    width: 400,
+    height: 200,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  button: {
+    padding: 15,
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  t: {
+    backgroundColor: "transparent",
+    fontSize: 15,
+    color: "#000",
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 99,
+    boxShadow: "0 1px 10px rgba(0,0,0,0.5)",
+  },
+  r: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+  },
+  s: {
+    width: 250,
+    height: 16,
   },
 });
