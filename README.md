@@ -6,6 +6,25 @@ Also, this component supports the [React Compiler](https://react.dev/learn/react
 
 <img width="800" src="https://github.com/user-attachments/assets/ce2ef237-7eb0-401d-a756-d1ea43df608b" />
 
+## ⚠️ Warning ⚠️
+
+Also, You don't need any third-party libraries to use linear gradients in React Native.
+You can use the `experimental_backgroundImage` style property, which is available in React Native 0.76.x and later.
+
+```tsx
+import { Platform, StyleSheet, View } from "react-native";
+
+const styles = StyleSheet.create({
+  gradient: Platform.select({
+    web: { backgroundImage: "linear-gradient(...)" }, // works in `react-native-web` by default
+    default: { experimental_backgroundImage: "linear-gradient(...)" }, // 0.76.x +
+  }),
+});
+
+function App() {
+  return <View style={styles.gradient} />;
+}
+```
 
 ## Installation
 
