@@ -4,7 +4,8 @@ This package is exceptionally fast because it’s fully stateless and doesn’t 
 
 Also, this component supports the [React Compiler](https://react.dev/learn/react-compiler) out of the box
 
-TODO img...
+<img width="800" src="https://github.com/user-attachments/assets/ce2ef237-7eb0-401d-a756-d1ea43df608b" />
+
 
 ## Installation
 
