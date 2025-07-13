@@ -44,6 +44,8 @@ function getSvgColors(
     .join("");
 }
 
+const toPercent = (v: number): string => v * 100 + "%";
+
 export function getLinearGradientBackgroundImage(
   start: RequiredProps["start"],
   end: RequiredProps["end"],
@@ -57,7 +59,7 @@ export function getLinearGradientBackgroundImage(
   }
 
   const svgColors = getSvgColors(colors, locations);
-  const svgGradient = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><linearGradient id="g" gradientUnits="objectBoundingBox" x1="${start.x}" y1="${start.y}" x2="${end.x}" y2="${end.y}">${svgColors}</linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>`;
+  const svgGradient = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="${toPercent(start.x)}" y1="${toPercent(start.y)}" x2="${toPercent(end.x)}" y2="${toPercent(end.y)}">${svgColors}</linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>`;
   return `url("data:image/svg+xml,${encodeURIComponent(svgGradient)}")`;
 }
 
