@@ -1,6 +1,10 @@
 Ultra-fast linear gradient implementation for [React Native Web](https://www.npmjs.com/package/react-native-web).
 
-This package is exceptionally fast because it’s fully stateless and doesn’t rely on setState during layout events.
+This package is exceptionally fast because it’s fully stateless and doesn’t rely on setState during layout events (see [react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient/blob/2d8db660960de6b1e39f77df4269d12bd3e9aaa0/src/index.js#L26-L29), and [expo-linear-gradient](https://github.com/expo/expo/blob/a469bf63617d00fcc9a8ffd6c50a484e66e777c8/packages/expo-linear-gradient/src/NativeLinearGradient.web.tsx#L37-L44)).
+
+Also, this component supports the [React Compiler](https://react.dev/learn/react-compiler) out of the box
+
+TODO img...
 
 ## Installation
 
@@ -10,24 +14,101 @@ Install the package using either npm or yarn:
 yarn add react-native-linear-gradient-web
 ```
 
-Update your `webpack.config.js` to include the following alias:
+If you use a Webpack bundler you can use simply adjust your `webpack.config.js` to include the following alias:
 
 ```diff
 module.exports = {
   resolve: {
     alias: {
       'react-native': 'react-native-web',
-      // ...  
-+      'react-native-linear-gradient': 'react-native-linear-gradient-web',
+      // ...
++     'react-native-linear-gradient': 'react-native-linear-gradient-web',
     },
   },
 };
 ```
 
+Or, you can create a wrapper component that uses the `react-native-linear-gradient-web` package instead of `react-native-linear-gradient`:
+
+```tsx
+// ./my-linear-gradient.web.js
+import LinearGradientWeb from "react-native-linear-gradient-web";
+export default LinearGradientWeb;
+
+// ./my-linear-gradient.js
+import LinearGradient from "react-native-linear-gradient";
+export default LinearGradient;
+```
+
+Then you can import `./my-linear-gradient.js` in your codebase, and it will work seamlessly with both web and native platforms.
+
+```tsx
+import React from "react";
+import { View } from "react-native";
+import LinearGradient from "./my-linear-gradient";
+
+function App() {
+  return <LinearGradient colors={["red", "gold"]} />;
+}
+```
 
 ## Usage
 
-See examples in the original library: [react-native-linear-gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)
+Simple example of a linear gradient, [Open in Snack](https://snack.expo.dev/@retyui/linear-gradient):
+
+```tsx
+import { StyleSheet, Text } from "react-native";
+import LinearGradient from "react-native-linear-gradient-web";
+
+export default function App() {
+  return (
+    <LinearGradient
+      colors={[
+        "gold",
+        "blue",
+        "purple",
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "pink",
+        "cyan",
+        "magenta",
+      ]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
+      <LinearGradient
+        colors={["#4c669f", "#3b5998", "#192f6a"]}
+        style={styles.button}
+      >
+        <Text style={styles.text}>Sign in with Facebook</Text>
+      </LinearGradient>
+    </LinearGradient>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  button: {
+    padding: 15,
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  text: {
+    backgroundColor: "transparent",
+    fontSize: 15,
+    color: "#fff",
+  },
+});
+```
+
+See more examples in the original library: [react-native-linear-gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)
 
 ## Comparison
 
@@ -53,7 +134,6 @@ https://github.com/user-attachments/assets/543389b2-6670-4954-8f72-e3d8358b072e
 </tr>
 </tbody>
 </table>
-
 
 ## Known Issues
 
