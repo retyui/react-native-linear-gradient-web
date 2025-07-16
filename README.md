@@ -1,4 +1,4 @@
-This package offers an ultra-fast linear gradient implementation specifically for [React Native Web](https://www.npmjs.com/package/react-native-web).
+This package offers fast linear gradient implementation specifically for [React Native Web](https://www.npmjs.com/package/react-native-web).
 
 Its exceptional speed comes from being fully stateless, meaning it avoids setState during layout events. This key difference sets it apart from similar packages like [react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient/blob/2d8db660960de6b1e39f77df4269d12bd3e9aaa0/src/index.js#L26-L29) and [expo-linear-gradient](https://github.com/expo/expo/blob/a469bf63617d00fcc9a8ffd6c50a484e66e777c8/packages/expo-linear-gradient/src/NativeLinearGradient.web.tsx#L37-L44).
 
@@ -6,6 +6,8 @@ Plus, this component supports the [React Compiler](https://react.dev/learn/react
 
 
 <img width="500" src="https://github.com/user-attachments/assets/ce2ef237-7eb0-401d-a756-d1ea43df608b" />
+
+---
 
 ## ⚠️ Warning ⚠️
 
@@ -27,9 +29,7 @@ function App() {
 }
 ```
 
-
 ---
-
 
 ## Installation
 
@@ -38,6 +38,8 @@ Install the package using either npm or yarn:
 ```bash
 yarn add react-native-linear-gradient-web
 ```
+
+## Usage
 
 You can create a wrapper component that uses the `react-native-linear-gradient-web` package instead of `react-native-linear-gradient`:
 
@@ -78,63 +80,11 @@ module.exports = {
 };
 ```
 
-## Usage
+## Examples
 
-Simple example of a linear gradient, [Open in Snack](https://snack.expo.dev/@retyui/linear-gradient):
+- Live example [https://snack.expo.dev/linear-gradient](https://snack.expo.dev/@retyui/linear-gradient?platform=web), or use local example in `example/expo` folder.
+- More examples in the original library: [react-native-linear-gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)
 
-```tsx
-import { StyleSheet, Text } from "react-native";
-import LinearGradient from "react-native-linear-gradient-web";
-
-export default function App() {
-  return (
-    <LinearGradient
-      colors={[
-        "gold",
-        "blue",
-        "purple",
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "pink",
-        "cyan",
-        "magenta",
-      ]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.container}
-    >
-      <LinearGradient
-        colors={["#4c669f", "#3b5998", "#192f6a"]}
-        style={styles.button}
-      >
-        <Text style={styles.text}>Sign in with Facebook</Text>
-      </LinearGradient>
-    </LinearGradient>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  button: {
-    padding: 15,
-    alignItems: "center",
-    borderRadius: 5,
-  },
-  text: {
-    backgroundColor: "transparent",
-    fontSize: 15,
-    color: "#fff",
-  },
-});
-```
-
-See more examples in the original library: [react-native-linear-gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)
 
 ## Comparison
 
