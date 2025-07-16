@@ -149,20 +149,12 @@ See more examples in the original library: [react-native-linear-gradient](https:
 <tr>
 <td>
 
-
-
 https://github.com/user-attachments/assets/90798d01-5f93-4b87-8b60-0d6df912cbc1
-
-
 
 </td>
 <td>
 
-
-
-https://github.com/user-attachments/assets/45289841-805b-47f1-9a95-7f3455221a9f
-
-
+https://github.com/user-attachments/assets/9fe8f1b3-b6aa-4852-a962-c25e3be529d7
 
 </td>
 </tr>
