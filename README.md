@@ -1,8 +1,9 @@
-Ultra-fast linear gradient implementation for [React Native Web](https://www.npmjs.com/package/react-native-web).
+This package offers an ultra-fast linear gradient implementation specifically for [React Native Web](https://www.npmjs.com/package/react-native-web).
 
-This package is exceptionally fast because it’s fully stateless and doesn’t rely on setState during layout events (see [react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient/blob/2d8db660960de6b1e39f77df4269d12bd3e9aaa0/src/index.js#L26-L29), and [expo-linear-gradient](https://github.com/expo/expo/blob/a469bf63617d00fcc9a8ffd6c50a484e66e777c8/packages/expo-linear-gradient/src/NativeLinearGradient.web.tsx#L37-L44)).
+Its exceptional speed comes from being fully stateless, meaning it avoids setState during layout events. This key difference sets it apart from similar packages like [react-native-web-linear-gradient](https://github.com/react-native-web-community/react-native-web-linear-gradient/blob/2d8db660960de6b1e39f77df4269d12bd3e9aaa0/src/index.js#L26-L29) and [expo-linear-gradient](https://github.com/expo/expo/blob/a469bf63617d00fcc9a8ffd6c50a484e66e777c8/packages/expo-linear-gradient/src/NativeLinearGradient.web.tsx#L37-L44).
 
-Also, this component supports the [React Compiler](https://react.dev/learn/react-compiler) out of the box
+Plus, this component supports the [React Compiler](https://react.dev/learn/react-compiler) out of the box.
+
 
 <img width="800" src="https://github.com/user-attachments/assets/ce2ef237-7eb0-401d-a756-d1ea43df608b" />
 
@@ -26,6 +27,10 @@ function App() {
 }
 ```
 
+
+---
+
+
 ## Installation
 
 Install the package using either npm or yarn:
@@ -34,21 +39,7 @@ Install the package using either npm or yarn:
 yarn add react-native-linear-gradient-web
 ```
 
-If you use a Webpack bundler you can use simply adjust your `webpack.config.js` to include the following alias:
-
-```diff
-module.exports = {
-  resolve: {
-    alias: {
-      'react-native': 'react-native-web',
-      // ...
-+     'react-native-linear-gradient': 'react-native-linear-gradient-web',
-    },
-  },
-};
-```
-
-Or, you can create a wrapper component that uses the `react-native-linear-gradient-web` package instead of `react-native-linear-gradient`:
+You can create a wrapper component that uses the `react-native-linear-gradient-web` package instead of `react-native-linear-gradient`:
 
 ```tsx
 // ./my-linear-gradient.web.js
@@ -70,6 +61,21 @@ import LinearGradient from "./my-linear-gradient";
 function App() {
   return <LinearGradient colors={["red", "gold"]} />;
 }
+```
+
+
+or if you use a Webpack bundler you can use simply adjust your `webpack.config.js` to include the following alias:
+
+```diff
+module.exports = {
+  resolve: {
+    alias: {
+      'react-native': 'react-native-web',
+      // ...
++     'react-native-linear-gradient': 'react-native-linear-gradient-web',
+    },
+  },
+};
 ```
 
 ## Usage
@@ -135,20 +141,18 @@ See more examples in the original library: [react-native-linear-gradient](https:
 <table>
 <thead>
 <tr>
-<th>🤔 react-native-web-linear-gradient</th>
-<th>🚀 react-native-linear-gradient-web</th>
+<th>flickering when a component mount</th>
+<th>Offest & Angle</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
 
-https://github.com/user-attachments/assets/c0a6aaaf-aa93-42f6-bc98-3e64711a3ecd
 
 </td>
 <td>
 
-https://github.com/user-attachments/assets/543389b2-6670-4954-8f72-e3d8358b072e
 
 </td>
 </tr>
