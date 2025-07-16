@@ -5,7 +5,7 @@ Its exceptional speed comes from being fully stateless, meaning it avoids setSta
 Plus, this component supports the [React Compiler](https://react.dev/learn/react-compiler) out of the box.
 
 
-<img width="800" src="https://github.com/user-attachments/assets/ce2ef237-7eb0-401d-a756-d1ea43df608b" />
+<img width="500" src="https://github.com/user-attachments/assets/ce2ef237-7eb0-401d-a756-d1ea43df608b" />
 
 ## ⚠️ Warning ⚠️
 
@@ -150,8 +150,18 @@ See more examples in the original library: [react-native-linear-gradient](https:
 <td>
 
 
+
+https://github.com/user-attachments/assets/90798d01-5f93-4b87-8b60-0d6df912cbc1
+
+
+
 </td>
 <td>
+
+
+
+https://github.com/user-attachments/assets/45289841-805b-47f1-9a95-7f3455221a9f
+
 
 
 </td>
