@@ -12,7 +12,7 @@ Plus, this component supports the [React Compiler](https://react.dev/learn/react
 ## ⚠️ Warning ⚠️
 
 Also, You don't need any third-party libraries to use linear gradients in React Native.
-You can use the `experimental_backgroundImage` style property, which is available in React Native 0.76.x and later.
+You can use the `experimental_backgroundImage` style property, which is available in **React Native 0.76.x** and later.
 
 ```tsx
 import { Platform, StyleSheet, View } from "react-native";
